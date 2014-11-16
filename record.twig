@@ -1,0 +1,37 @@
+{% include '_header.twig' %}
+		<div class="wrapper style3">
+				<article id="portfolio">
+					<header>
+						<h2>{{ record.title }}</h2>
+						<p>{{ record.subtitle }}</p>
+					</header>
+					
+
+					
+					<div class="container">
+						<div class="row">
+						
+                            		
+						
+							<div class="4u">
+								<article class="box style2">
+									<a href="#" class="image featured"><img src="{{ thumbnail(record.image, 385, 270) }}" alt="" /></a>
+									{{ record.teaser }}
+								</article>
+							</div>
+							<div class="8u">
+								<article class="box style2">
+								<span style="text-align:left;">{{ record.body }}</span>
+								</article>
+							</div>
+				
+							
+						</div>
+					</div>
+					<footer>
+						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
+						<a href="#contact" class="button big scrolly">Get in touch with me</a>
+					</footer>
+				</article>
+			</div>
+{% include '_footer.twig' %}

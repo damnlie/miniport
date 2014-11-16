@@ -1,0 +1,36 @@
+{% include '_header.twig' %}
+		<div class="wrapper style3">
+				<article id="portfolio">
+					<header>
+						<h2>{{ paths.current | trim("/") | capitalize }}</h2>
+						<p>{{ record.subtitle }}</p>
+					</header>
+					
+
+					
+					<div class="container">
+						<div class="row">
+						
+                            
+                            {% for record in records %}
+						
+						
+							<div class="4u">
+								<article class="box style2">
+									<a href="{{ record.link }}" class="image featured"><img src="{{ thumbnail(record.image, 385, 270) }}" alt="" /></a>
+									<h3><a href="{{ record.link }}">{{ record.title }}</a></h3>
+									<p>{{ record.excerpt(100) }}</p>
+								</article>
+							</div>
+							
+							{% endfor %}
+							
+						</div>
+					</div>
+					<footer>
+						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
+						<a href="#contact" class="button big scrolly">Get in touch with me</a>
+					</footer>
+				</article>
+			</div>
+{% include '_footer.twig' %}

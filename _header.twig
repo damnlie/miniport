@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>
+            {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
+                {{ app.config.get('general/sitename') }}
+            {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
+		</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+        <script>
+            var themepath = '{{ paths.theme }}';
+        </script>
+		<!--[if lte IE 8]><script src="{{ paths.theme }}css/ie/html5shiv.js"></script><![endif]-->
+		<script src="{{ paths.theme }}js/jquery.min.js"></script>
+		<script src="{{ paths.theme }}js/jquery.scrolly.min.js"></script>
+		<script src="{{ paths.theme }}js/skel.min.js"></script>
+		<script src="{{ paths.theme }}js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="{{ paths.theme }}css/skel.css" />
+			<link rel="stylesheet" href="{{ paths.theme }}css/style.css" />
+			<link rel="stylesheet" href="{{ paths.theme }}css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="{{ paths.theme }}css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{{ paths.theme }}css/ie/v9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+				                    {{ menu('main', '_sub_menu.twig') }}
+
+				</ul>
+			</nav>
