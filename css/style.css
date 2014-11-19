@@ -760,3 +760,18 @@
 		{
 			color: #777;
 		}
+		
+	form input[type=email],form input[type=email]:focus
+        {
+                background: #282828;
+                border: none;
+        }
+              
+     	.simpleform-submit 
+         {
+		margin-top:20px;                
+	 }
+       
+
+ 
+                       

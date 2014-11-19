@@ -4,14 +4,22 @@
 				<article class="container" id="top">
 					<div class="row">
 						<div class="4u">
-							<span class="image fit"><img src="{{ paths.theme }}images/miniportimage.png" alt="" /></span>
+							<span class="image fit"><img src="{{ paths.theme }}/images/catsense.jpg" alt="" /></span>
 						</div>
 						<div class="8u">
+							{% if theme.myname is defined and theme.intro is defined %}
 							<header>
-								<h1>Hi. I'm <strong>Melinda Kiss</strong></h1>
+								<h1>Hi. I'm <strong>{{ theme.myname }}</strong></h1>
 							</header>
-							<p>I'm an outgoing and energetic person who enjoys a challenge and achieving personal goals. I love robots, animals, computergames and traveling.</p>
+							<p>{{ theme.intro }}</p>
 							<a href="#work" class="button big scrolly">Learn about what I do</a>
+							{% else %}
+							  <header>
+								<h1>Hi. I'm <strong>{{ ('Your Name') }}</strong></h1>
+							  </header>
+							  <p>{{ ('Your introduction goes here. Tell the World about yourself.') }}</p>
+							  <a href="#work" class="button big scrolly">Learn about what I do</a>
+							{% endif %}
 						</div>
 					</div>
 				</article>
@@ -21,8 +29,14 @@
 			<div class="wrapper style2">
 				<article id="work">
 					<header>
-						<h2>Here's some of the stuff I do.</h2>
-						I have a work portfolio, some personal projects and some other contributions to share.
+					
+						{% if theme.workheader is defined and theme.worksecondlineheader is defined %}
+						<h2>{{ theme.workheader }}</h2>
+						{{ theme.worksecondlineheader }}
+						{% else %}
+						  <h2>{{ ('This is for your work header') }}</h2>
+						  {{ ('This is for extra information') }}
+						{% endif %}
 					</header>
 					
 					
@@ -35,26 +49,41 @@
 						<div class="row">
 							<div class="4u">
 								<section class="box style1">
+									{% if theme.leftboxtitle is defined and theme.leftboxextratext is defined and theme.leftboxlink %}
 									<span class="icon featured fa-paint-brush"></span>
-									<h3><a href="/portfolio"> Portfolio </a></h3>
-									<p>A portolio of my work</p>
+									<h3><a href="{{ theme.leftboxlink }}">{{ theme.leftboxtitle }}</a></h3>
+									<p>{{ theme.leftboxextratext }}</p>
+									{% else %}
+									  <span class="icon featured fa-paint-brush"></span>
+									  <h3><a href="">{{ ('Thing goes here') }} </a></h3>
+									  <p>{{ ('Extra information goes here') }}</p>
+									{% endif %}
 								</section>
 							</div>
 							<div class="4u">
 								<section class="box style1">
+									{% if theme.middleboxlink is defined and theme.middleboxtitle is defined and theme.middleboxextratext is defined %}
 									<span class="icon featured fa-fire"></span>
-									<h3><a href="/projects"> Projects </a></h3>
-									<p>Projects I work on</p>
+									<h3><a href="{{ theme.middleboxlink }}">{{ theme.middleboxtitle }}</a></h3>
+									<p>{{ theme.middleboxextratext }}</p>
+									{% else %}
+									  <span class="icon featured fa-fire"></span>
+									  <h3><a href="">{{ ('Other things') }}</a></h3>
+									  <p>{{ ('Extra information') }}</p>
+									{% endif %}
 								</section>
 							</div>
 							<div class="4u">
-								<section class="box style1"> 
+								<section class="box style1">
+									{% if theme.rightboxtitle is defined and theme.rightboxextratext is defined and theme.rightboxlink %}
 									<span class="icon featured fa-group"></span>
-									
-									{% setcontent page = 'page' where { id: '3' } %}
-									
-									<h3><a href="/page/contributions">{{ page.title }}</a></h3>
-									<p>My Open Source contributions</p>
+									<h3><a href="{{ theme.rightboxlink }}">{{ theme.rightboxtitle }}</a></h3>
+									<p>{{ theme.rightboxextratext }}</p>
+									{% else %}
+									  <span class="icon featured fa-group"></span>
+									  <h3><a href="">{{ ('Something else') }}</a></h3>
+									  <p>{{ ('Extra information') }}</p>
+									{% endif %}
 								</section>
 							</div>
 						</div>
@@ -70,33 +99,20 @@
 			<div class="wrapper style3">
 				<article id="portfolio">
 					<header>
-						<h2>Random Mix</h2>
-						<p>This is a random mix of my projects and portfolio.</p>
+						{%if theme.portfolioheader is defined and theme.portfoliosecondlineheader is defined %}
+						<h2>{{ theme.portfolioheader }}</h2>
+						<p>{{ theme.portfoliosecondlineheader }}</p>
+						{% else %}
+						  <h2>{{ ('This is for your portfolio header') }}</h2>
+						  <p>{{ ('This can explane more') }}</p>
+						{% endif %}
 					</header>
 					
 
 					
 					<div class="container">
 						<div class="row">
-						{% setcontent portfolio = 'portfolio/random/3' %}
-						{% for port in portfolio %}
-							<div class="4u">
-							
-								<article class="box style2">
-								
-									<a href="{{ port.link }}" class="image featured"><img src="{{ thumbnail(port.image, 383, 269) }}" alt="" /></a>
-									<h3 style="min-height:0px;"><a href="{{ port.link }}">{{ port.title }}</a></h3>
-									{{ port.teaser }}
-								</article>
-							
-							</div>
-							
-						{% endfor %}
-							
-						</div>
-						
-						<div class="row">
-						{% setcontent portfolio = 'projects/random/3' %}
+						{% setcontent portfolio = 'entries/random/6' %}
 						{% for port in portfolio %}
 							<div class="4u">
 							
