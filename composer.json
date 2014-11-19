@@ -6,12 +6,16 @@
     "require": {
         "bolt/bolt": ">=2.0.0,<3.0.0"
     },
-    "license": "MIT",
+    "license": "CC BY 3.0",
     "authors": [
         {
             "name": "Derk Duit",
             "email": "derk@twokings.nl"
-        }
+        },
+        {
+	    "name": "MelindaK",
+	    "email": "melindakiss@kissmelinda.com"
+	}
     ],
     "extra": {
         "bolt-screenshots": [
